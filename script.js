@@ -11,6 +11,14 @@ keys.forEach((e) => {
   const keyValue = e.getAttribute('value');
 
   e.addEventListener('click', () => {
+    if (
+      (keyValue === "." && result.value.includes(".")) ||
+      (keyValue === "*" && result.value.includes("*")) ||
+      (keyValue === "+" && result.value.includes("+")) ||
+      (keyValue === "-" && result.value.includes("-")) ||
+      (keyValue === "/" && result.value.includes("/"))) {
+      return;
+    }; 
     result.value = result.value.concat(keyValue);
   });
 });
@@ -27,16 +35,16 @@ clear.addEventListener('click', () => {
 
 // Equal
 equal.addEventListener('click', () => {
-  if(!result.value == "") {
+ if (!result.value == "") {
     result.value = eval(result.value);
-  };
+  }
 });
 
 // Square
 square.addEventListener('click', () => {
   if (!result.value == "") {
     result.value = eval(result.value * result.value);
-  };
+  }
 });
 
 // Cube
